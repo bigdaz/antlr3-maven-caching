@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bigdaz</groupId>
+    <artifactId>mvn-antlr</artifactId>
+    <name>ANTLR3 project: com.bigdaz.antlr</name>
+    <version>1.0</version>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr-runtime</artifactId>
+            <version>3.5.2</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr3-maven-plugin</artifactId>
+                <version>3.5.2</version>
+                <executions>
+                  <execution>
+                    <goals>
+                      <goal>antlr</goal>
+                    </goals>
+                  </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>com.gradle</groupId>
+              <artifactId>gradle-enterprise-maven-extension</artifactId>
+              <configuration>
+                <gradleEnterprise>
+                  <plugins>
+                    <plugin>
+                      <groupId>org.antlr</groupId>
+                      <artifactId>antlr3-maven-plugin</artifactId>
+                      <inputs>
+                        <fileSets>
+                          <fileSet>
+                            <name>sourceDirectory</name>
+                          </fileSet>
+                          <fileSet>
+                            <name>libDirectory</name>
+                          </fileSet>
+                        </fileSets>
+                        <properties>
+                          <property><name>excludes</name></property>
+                          <property><name>includes</name></property>
+                          <property><name>dfa</name></property>
+                          <property><name>nfa</name></property>
+                          <property><name>maxSwitchCaseLabels</name></property>
+                          <property><name>minSwitchAlts</name></property>
+                          <property><name>messageFormat</name></property>
+                        </properties>
+                        <ignoredProperties>
+                          <ignore>debug</ignore>
+                          <ignore>trace</ignore>
+                          <ignore>verbose</ignore>
+                          <ignore>printGrammar</ignore>
+                          <ignore>profile</ignore>
+                          <ignore>report</ignore>
+
+                        <!-- internal mojo properties -->
+                        <ignore>project</ignore>
+                        </ignoredProperties>
+                      </inputs>
+                      <outputs>
+                        <directories>
+                          <directory>
+                            <name>outputDirectory</name>
+                          </directory>
+                        </directories>
+                        <cacheableBecause>All inputs and outputs declared</cacheableBecause>
+                      </outputs>
+                    </plugin>
+                  </plugins>
+                </gradleEnterprise>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>

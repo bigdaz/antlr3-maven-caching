@@ -1,0 +1,16 @@
+<gradleEnterprise>
+    <server>
+        <url>http://localhost</url>
+    </server>
+    <buildScan>
+        <captureGoalInputFiles>true</captureGoalInputFiles>
+    </buildScan>
+    <buildCache>
+        <local>
+            <enabled>true</enabled>
+        </local>
+        <remote>
+            <enabled>false</enabled>
+        </remote>
+    </buildCache>
+</gradleEnterprise>
